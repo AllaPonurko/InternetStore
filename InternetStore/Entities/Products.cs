@@ -14,5 +14,9 @@ namespace InternetStore
         public int Quantity { get; set; }
         public string Gender { get; set; }
         public string Origin { get; set; }
+        public override string ToString()
+        {
+            return $"{Name}\t"+$"Color-{Color}\n"+ $"{Gender}\t" + $"Size-{Size}\n"+$"{Price} грн.\n"+$"Origin-{Origin}";
+        }
     }
 }
