@@ -9,27 +9,27 @@ namespace InternetStore.Entities
         public Guid Id { get; set; } = new Guid();
         
         public DateTime OrderTime = DateTime.Now;
-        private Guid productId;
+        public Guid productId;
 
-        private Guid GetProductId()
+        public Guid GetProductId()
         {
             return productId;
         }
 
-        private void SetProductId(Products product)
+        public void SetProductId(Products product)
         {
             productId = product.Id;
         }
         public int Current { get; set; }
 
-        private Guid warehouseId;
+        public Guid warehouseId;
 
-        private Guid GetWarehouseId()
+        public Guid GetWarehouseId()
         {
             return warehouseId;
         }
 
-        private void SetWarehouseId(Warehouses warehouses)
+        public void SetWarehouseId(Warehouses warehouses)
         {
             warehouseId = warehouses.Id;
         }

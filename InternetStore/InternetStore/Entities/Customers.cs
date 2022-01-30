@@ -9,17 +9,18 @@ namespace InternetStore.Entities
        public Guid Id { get; set; } = new Guid();
         public string Name { get; set; }
         public string Phone { get; set; }
+        public Guid OrderId { get => orderId; set => orderId = value; }
 
         private Guid orderId;
 
-        private Guid GetOrderId()
+        public Guid GetOrderId()
         {
-            return orderId;
+            return OrderId;
         }
 
-        private void SetOrderId(Orders order)
+        public void SetOrderId(Orders order)
         {
-            orderId = order.Id;
+            OrderId = order.Id;
         }
         public override string ToString()
         {
