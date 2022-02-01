@@ -8,7 +8,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using System.Data.Entity;
 
 namespace InternetStore
-{
+{/// <summary>
+/// класс для взаимодействия с контекстом базы данных
+/// </summary>
      public class ProductDBContext:DbContext
     {
         public ProductDBContext():base("InternetStore")
@@ -96,6 +98,7 @@ namespace InternetStore
             products.Add(products4);
             products.Add(products5); 
             products.Add(products6);
+            
         }
         public void PrintProducts()
         {
@@ -108,7 +111,7 @@ namespace InternetStore
             }
         }
         /// <summary>
-        /// 
+        /// регистрация клиента
         /// </summary>
         public void RegisterUser()
         {
@@ -120,7 +123,7 @@ namespace InternetStore
             customers.Add(customer);
         }
         /// <summary>
-        /// 
+        /// вывод регистрационных данных клиента
         /// </summary>
         public void PrintCustomers()
         {
@@ -131,7 +134,7 @@ namespace InternetStore
             }
         }
         /// <summary>
-        /// 
+        /// создать заказ
         /// </summary>
         public void CreateOrder()
         {

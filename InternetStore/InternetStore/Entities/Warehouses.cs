@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace InternetStore.Entities
-{
+{/// <summary>
+/// склад
+/// </summary>
     public class Warehouses
     {
         public Guid Id { get; set; } = new Guid();

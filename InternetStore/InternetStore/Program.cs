@@ -6,11 +6,10 @@
         {
             using(
             ProductDBContext myDB = new ProductDBContext())
-            {
-                //myDB.SaveChanges();
-                myDB.PrintProducts();
+            { 
                 myDB.RegisterUser();
-                myDB.PrintCustomers();
+                myDB.CreateOrder();
+                
             }
             
         }
