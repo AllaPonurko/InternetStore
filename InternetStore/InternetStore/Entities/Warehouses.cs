@@ -9,10 +9,8 @@ namespace InternetStore.Entities
         public Guid Id { get; set; } = new Guid();
         string Name { get; set; }
         string Adress { get; set; }
-        public Guid ProductId { get => productId; set => productId = value; }
-
-        private Guid productId;
-
+        public Guid ProductId { get => ProductId; set => ProductId = value; }
+        
         public Guid GetProductId()
         {
             return ProductId;
