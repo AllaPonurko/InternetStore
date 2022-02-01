@@ -3,26 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using InternetStore.Entities;
-using Microsoft.EntityFrameworkCore;
+//using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using System.Data.Entity;
 
 namespace InternetStore
 {
      public class ProductDBContext:DbContext
     {
-        public ProductDBContext()
+        public ProductDBContext():base("InternetStore")
         {
             Seed();
-            Database.EnsureDeleted();
-            Database.EnsureCreated();
+            //Database.EnsureDeleted();
+            //Database.EnsureCreated();
         }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=internetstore;Trusted_Connection=True;");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=internetstore;Trusted_Connection=True;");
+        //}
         public DbSet<Products> products=>Set<Products>();
-        
-        
+        public DbSet<Orders> orders => Set<Orders>();
+        public DbSet<Customers> customers => Set<Customers>();
         public DbSet<Warehouses> warehouses=>Set<Warehouses>();
         /// <summary>
         /// первичное заполнение базы номенклатурой товаров
@@ -106,9 +107,41 @@ namespace InternetStore
                 Console.WriteLine($"==============");
             }
         }
-        
+        /// <summary>
+        /// 
+        /// </summary>
+        public void RegisterUser()
+        {
+            Customers customer = new Customers();
+            Console.WriteLine($"Введите имя:");
+            customer.Name = Console.ReadLine();
+            Console.WriteLine($"Введите номер телефона:");
+            customer.Phone = Console.ReadLine();
+            customers.Add(customer);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public void PrintCustomers()
+        {
+            var cust = customers.ToList();
+            foreach (var item in cust)
+            {
+                Console.WriteLine(item.ToString());
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public void CreateOrder()
+        {
+            Orders order = new Orders();
+            Console.WriteLine($"Смотреть товары");
+            ProductDBContext myDB = new ProductDBContext();
+            myDB.PrintProducts();
 
-        
+        }
+
     }
 
 }

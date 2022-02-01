@@ -1,7 +1,4 @@
-﻿using InternetStore.DBContext;
-using System;
-using static System.Console;
-namespace InternetStore
+﻿namespace InternetStore
 {
     class Program
     {
@@ -10,16 +7,12 @@ namespace InternetStore
             using(
             ProductDBContext myDB = new ProductDBContext())
             {
-                myDB.SaveChanges();
+                //myDB.SaveChanges();
                 myDB.PrintProducts();
-                
+                myDB.RegisterUser();
+                myDB.PrintCustomers();
             }
-            using (CustomersDBContext CusDB = new CustomersDBContext())
-            {
-                CusDB.RegisterUser();
-                CusDB.SaveChanges();
-                CusDB.PrintCustomers();
-            }
+            
         }
     }
 }
